@@ -593,8 +593,8 @@ enum TpmuName {
 #[derive(Clone, Copy, PartialEq, Debug, Marshalable)]
 #[marshalable(tpm2b_simple)]
 pub struct Tpm2bDigest {
-    size: u16,
-    buffer: [u8; TpmtHa::UNION_SIZE],
+    pub size: u16,
+    pub buffer: [u8; TpmtHa::UNION_SIZE],
 }
 
 pub type Tpm2bNonce = Tpm2bDigest;

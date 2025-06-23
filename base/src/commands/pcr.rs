@@ -12,9 +12,9 @@ pub struct PcrEventCmd {}
 
 /// [TPM2.0 1.83] 22.4 TPM2_PCR_Read (Command)
 #[repr(C)]
-#[derive(Clone, Copy, PartialEq, Debug, Marshalable)]
+#[derive(Default, Clone, Copy, PartialEq, Debug, Marshalable)]
 pub struct PcrReadCmd {
-    pcr_selection_in: TpmlPcrSelection,
+    pub pcr_selection_in: TpmlPcrSelection,
 }
 impl TpmCommand for PcrReadCmd {
     const CMD_CODE: TpmCc = TpmCc::PCRRead;
@@ -26,9 +26,9 @@ impl TpmCommand for PcrReadCmd {
 #[repr(C)]
 #[derive(Clone, Copy, PartialEq, Debug, Marshalable)]
 pub struct PcrReadResp {
-    pcr_update_counter: u32,
-    pcr_selection_out: TpmlPcrSelection,
-    pcr_values: TpmlDigest,
+    pub pcr_update_counter: u32,
+    pub pcr_selection_out: TpmlPcrSelection,
+    pub pcr_values: TpmlDigest,
 }
 
 /// [TPM2.0 1.83] 22.5 TPM2_PCR_Allocate (Command)
